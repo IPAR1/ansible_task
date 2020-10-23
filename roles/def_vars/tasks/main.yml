@@ -1,0 +1,9 @@
+---
+# tasks file for def_vars
+- name: define content of a file as variable
+  shell: cat /etc/issue
+  register: issue_content
+- set_fact: msg="{{issue_content.stdout}}{{ansible_host}}"
+
+- debug:
+   var: msg

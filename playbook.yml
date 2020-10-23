@@ -1,0 +1,10 @@
+---
+- hosts: iaas
+  become: yes
+  roles:
+    - iaac
+
+- hosts: all
+  become: yes
+  roles:
+    - def_vars

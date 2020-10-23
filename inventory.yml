@@ -1,0 +1,21 @@
+all:
+  children:
+    group1:
+     hosts:
+        u1:
+         ansible_host: 192.168.152.138
+    group2:
+      hosts:
+        u2:
+         ansible_host: 192.168.152.135
+    group3:
+      hosts:
+        u3:
+         ansible_host: 192.168.152.139
+    iaas:
+      children:
+        group1:
+        group2:
+      hosts:
+        u4:
+         ansible_host: 192.168.152.134

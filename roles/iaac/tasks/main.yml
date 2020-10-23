@@ -1,0 +1,18 @@
+---
+# tasks file for iaac
+- name: probe if the file exists
+  stat:
+    path: "/etc/iaac"
+  register: iaac
+
+- name: create an empty iaac file
+  file:
+    path: "/etc/iaac"
+    state: touch
+  when: iaac.stat.exists==false
+
+- name: set premissions
+  file:
+    path: "/etc/iaac"
+    state: file
+    mode: 0500
